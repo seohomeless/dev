@@ -11,15 +11,14 @@
 
                 <div class="panel-body">
 				
-
-
-					@foreach($showcategori as $showcategor)
+				@foreach($showcategori as $showcategor)
 						 {{ $showcategor->tovar_id }} 
 						 
-							@foreach($showcategor->tovarcategoris as $sho)
-								{{ $sho->id }} 
-							@endforeach
-					
+							@foreach($showcategor->tovarishow as $tovari)
+								<h2>{{ $tovari->title }} </h2>
+								<h4>{{ $tovari->id }} </h4>
+									{{ $tovari->description }} 
+						 	@endforeach
 					
 					@endforeach
 				
