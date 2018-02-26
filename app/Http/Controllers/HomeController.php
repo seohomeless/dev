@@ -38,14 +38,12 @@ class HomeController extends Controller
 	
 
 	public function showcategori($id)
-    {	
-		$showcategori = Categoriproducts::where('categori_id', $id)->get();
-		
-	
-		return view('showcategori')
-			->with('showcategori', $showcategori);
+    {
+		$category = Categories::find($id);
+		$products = $category->tovars;
+		return view('showcategori',compact('products'))
+			->with('category_name', $category->name);
     }
-	
 	
 	
 	

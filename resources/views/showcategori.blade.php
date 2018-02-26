@@ -11,16 +11,16 @@
 
                 <div class="panel-body">
 				
-				@foreach($showcategori as $showcategor)
-						 {{ $showcategor->tovar_id }} 
-						 
-							@foreach($showcategor->tovarishow as $tovari)
-								<h2>{{ $tovari->title }} </h2>
-								<h4>{{ $tovari->id }} </h4>
-									{{ $tovari->description }} 
-						 	@endforeach
-					
+			  <p> КАТЕГОРИЯ: {{ $category_name }}</p>
+	
+					@foreach($products as $tovari)
+						<div class="tovar"><span class="price">Цена: {{ $tovari->price }} грн.</span>
+						<img src="/img/{{ $tovari->photo }}"><a href="/tovar/{{ $tovari->id }}"><h3>{{ $tovari->title }}</h3></a>
+						<p>{{ str_limit(strip_tags($tovari->description), 150) }}...
+						<p><a href="/tovar/{{ $tovari->id }}">Подробнее</a>
+						</div>
 					@endforeach
+
 				
                 </div>
             </div>
